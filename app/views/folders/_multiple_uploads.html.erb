@@ -1,0 +1,31 @@
+<!-- load JQuery if not loaded -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  if(typeof jQuery === 'undefined') google.load("jquery", "1.3");
+</script>
+
+<!-- Load Queue widget CSS and jQuery -->
+<style type="text/css">@import url(/javascripts/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css);</style>
+
+<!-- Load plupload and all it's runtimes and finally the jQuery queue widget -->
+<script type="text/javascript" src="/javascripts/plupload/js/plupload.full.js"></script>
+<script type="text/javascript" src="/javascripts/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+
+<!-- Thirdparty intialization scripts, needed for the Google Gears and BrowserPlus runtimes -->
+<script type="text/javascript" src="/javascripts/plupload/js/plupload.browserplus.js"></script>
+<script type="text/javascript" src="/javascripts/plupload/js/plupload.gears.js"></script>
+
+
+
+
+<input type="hidden" name="authenticity_token" value=<%= session[:_csrf_token] %>>
+<div class="gridDiv">
+
+<script type="text/javascript">
+  	
+  // Convert divs to queue widgets when the DOM is ready
+  $(function() {   
+   
+
+  });
+</script>

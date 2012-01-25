@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Manage Documents</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+  <%= javascript_include_tag  "jquery-1.6.2.min.js","application.js"  %>
+</head>
+<body>
+<div id="header">
+<div id="logo">
+	<h1>Manage Documents</h1>
+	<h2></h2>
+</div>
+</div>
+<div id="menu-wrap">
+<div id="menu">
+	<ul>
+		<li class="first"><%= link_to "Folders", folders_path, :accesskey=>"1"%></li>
+		<li><%= link_to "New Folders", new_folder_path, :accesskey=>"2"%></li>
+		<!--<li><a href="#" accesskey="3" title="">Services</a></li>
+		<li><a href="#" accesskey="4" title="">About Us</a></li>
+		<li><a href="#" accesskey="5" title="">Contact Us</a></li>-->
+	</ul>
+</div>
+
+</div>
+<div id="main_content" class="content">
+      <%if flash[:notice]%>
+      <p style="color: green" class="flash"><%= flash[:notice] %></p>
+      <% end %>
+      <%= yield %>
+</div>
+<hr />
+
+</body>
+</html>

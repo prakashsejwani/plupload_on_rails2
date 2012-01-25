@@ -1,0 +1,126 @@
+
+
+<h1><%=h @folder.name.capitalize %></h1>
+<%if !@folder.documents.empty?%>
+<table  id="mytable" cellspacing="0">
+  <thead>
+  <tr>
+    
+    <th  class="manage">Sr. No.</th>
+    <th class="manage">Name</th>
+   <th class="manage">Modified_name</th>
+    <th class="manage"></th>
+
+  </tr>
+ 
+  </thead>
+<tbody class="documents_container">
+  <%= render :partial => "document", :collection =>  @documents %>
+</tbody>
+</table>
+<table>
+<tbody>
+ <tr>
+<td><%= link_to 'Edit', edit_folder_path(@folder) %> </td>
+<td><%= link_to 'Back', folders_path %> </td>
+<td><%= link_to 'Refresh', folder_path(@folder) %></td>
+<td><%= link_to image_tag('/images/pdf_icon.png', :alt => 'Download') + "Download as PDF", url_for(request.params.merge(:format => :pdf))%></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<% end %>
+<a id ="multi_upload" href="#"> Add More</a>
+<div id="form_id">
+  <div id="uploader"> </div>
+</div>
+
+
+
+<!-- Load Queue widget CSS and jQuery -->
+<style type="text/css">@import url(/javascripts/plupload/js/jquery.ui.plupload/css/jquery.ui.plupload.css);</style>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> -->
+
+<!-- Third party script for BrowserPlus runtime (Google Gears included in Gears runtime now)
+<script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script> -->
+
+<!-- Load plupload and all it's runtimes and finally the jQuery UI queue widget -->
+<script type="text/javascript" src="/javascripts/plupload/js/plupload.full.js"></script>
+<script type="text/javascript" src="/javascripts/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
+
+<script type="text/javascript">
+// Convert divs to queue widgets when the DOM is ready
+  jQuery(function(){
+    jQuery('#form_id').hide();
+    jQuery("#multi_upload").click( function(event){
+                event.preventDefault();
+                jQuery("#form_id").dialog( { width: 800, 
+                   open: function(event, ui) {
+              var authtoken = "ABC";
+	            $("#uploader").plupload({
+		            // General settings
+		            runtimes : 'html5,gears,flash,silverlight,browserplus',
+		             url : '<%= do_multiple_upload_folders_path %>',
+                  max_file_size : '100mb',
+                  //chunk_size : '10mb',
+                  //unique_names : true,
+                  multipart: true,
+                  multipart_params : {"id" : <%= @folder.id %>, authenticity_token : authtoken, enctype : "multipart/form-data", "i" : <%= @i.to_i%>},
+                  flash_swf_url : '/javascripts/plupload/js/plupload.flash.swf',
+                  silverlight_xap_url : '/javascripts/plupload/js/plupload.silverlight.xap',
+                  
+                  init: {
+                   UploadFile: function(up, file) {
+                    console.log('[UploadFile]', file);
+	 
+                // You can override settings before the file is uploaded
+                // up.settings.url = 'upload.php?id=' + file.id;
+                var rename = "#"+ file.id + "_rename"
+                 console.log(rename); 
+                jQuery.extend(up.settings.multipart_params , {doc_name : $(rename).val()});
+	            },
+                   
+      
+                  FileUploaded: function(up, file, info) {
+                    eval(info["response"]);
+                  },
+                  
+                  UploadComplete: function(up, files, info) {
+                    window.location.href ="/folders/<%= @folder.id%>?files=" + files.length;
+                  },
+                  
+                },
+		            rename : true,
+
+		            // Resize images on clientside if we can
+		            resize : {width : 800, height : 240, quality : 90},
+	            });
+
+	            // Client side form validation
+	            $('form').submit(function(e) {
+                    var uploader = $('#uploader').plupload('getUploader');
+
+                    // Files in queue upload them first
+                    if (uploader.files.length > 0) {
+                        // When all files are uploaded submit form
+                        uploader.bind('StateChanged', function() {
+                            if (uploader.files.length === (uploader.total.uploaded + uploader.total.failed)) {
+                                $('form')[0].submit();
+                            }
+                        });
+                            
+                        uploader.start();
+                    } else
+                        alert('You must at least upload one file.');
+
+                    return false;
+                });
+
+             }
+          });
+      });
+});
+</script>

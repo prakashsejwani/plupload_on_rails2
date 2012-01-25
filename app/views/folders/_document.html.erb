@@ -1,0 +1,9 @@
+
+
+  <tr>
+    <td class="doc"><%= @i += 1%></td>
+     <td class="doc"><%= document.file.original_filename %></td>
+     <td class="doc"><%= document.name %></td> 
+    <td class="doc"><%= link_to 'Destroy', document_path(document, :folder => @folder.id), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+

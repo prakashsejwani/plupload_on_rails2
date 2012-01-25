@@ -1,0 +1,22 @@
+<table id="mytable"  width="100%" cellpadding="1" cellspacing="1"><tr><td><h1>List Folders</h1></td>
+<td><%= link_to ("Help","#", {:class => "help_link"})%></td></tr></table>
+<div class="help"><div class="help_content"><%= help_links("folder_index")%></div></div>
+<table id="mytable"  width="100%" cellpadding="1" cellspacing="1">
+  <tr>
+    <th  class="manage">Name</th>
+    
+    <th  class="manage">Manage</th>
+  </tr>
+
+<% @folders.each do |folder| %>
+  <tr>
+    <td class="doc"><%= link_to folder.name, folder %></td>
+    <td class="doc"><%= link_to 'Edit', edit_folder_path(folder) %>  <%= link_to 'Destroy', folder, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+<tr><td><% if request.format.html?%><%= link_to image_tag('/images/pdf_icon.png', :alt => 'Download') + "Download as PDF", create_product_pdf_folders_path%><% end %></td></tr>
+</table>
+
+<br />
+
+
