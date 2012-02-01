@@ -30463,3 +30463,727 @@ Rendering template within layouts/application
 Rendering folders/index
   [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
 Completed in 24ms (View: 20, DB: 1) | 200 OK [http://localhost/folders]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 15:59:17) [GET]
+  [4;36;1mFolder Load (6.5ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.7ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 113ms (View: 36, DB: 7) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#create_product_pdf (for 127.0.0.1 at 2012-01-30 15:59:21) [GET]
+
+ActionController::MissingFile (Cannot read file ):
+  app/controllers/folders_controller.rb:30:in `create_product_pdf'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (30.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 17:13:47) [GET]
+  [4;36;1mFolder Load (0.5ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 26ms (View: 21, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 17:13:47) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 27ms (View: 22, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-01-30 17:13:47) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mFolder Load (0.1ms)[0m   [0;1mSELECT * FROM "folders" WHERE ("folders"."id" = 3) [0m
+[paperclip] Duplicate URL for file with /system/files/:id/:basename.:extension. This will clash with attachment defined in Help class
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/folders_controller.rb:45:in `show'
+  app/controllers/folders_controller.rb:42:in `show'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (27.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#create_product_pdf (for 127.0.0.1 at 2012-01-30 17:13:48) [GET]
+
+ActionController::MissingFile (Cannot read file ):
+  app/controllers/folders_controller.rb:30:in `create_product_pdf'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (29.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#create_product_pdf (for 127.0.0.1 at 2012-01-30 17:14:04) [GET]
+
+ActionController::MissingFile (Cannot read file ):
+  app/controllers/folders_controller.rb:30:in `create_product_pdf'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (30.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 17:14:53) [GET]
+  [4;36;1mFolder Load (0.7ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 50ms (View: 38, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 17:43:53) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 101ms (View: 30, DB: 1) | 200 OK [http://localhost/folders/]
+
+
+Processing FoldersController#create_pdf (for 127.0.0.1 at 2012-01-30 17:43:56) [GET]
+
+ActionController::MissingFile (Cannot read file ):
+  app/controllers/folders_controller.rb:30:in `create_pdf'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (28.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 17:47:21) [GET]
+  [4;36;1mFolder Load (0.5ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 32ms (View: 26, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 19:15:44) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 37ms (View: 28, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#create_pdf (for 127.0.0.1 at 2012-01-30 19:15:53) [GET]
+
+ActionController::MissingFile (Cannot read file ):
+  app/controllers/folders_controller.rb:30:in `create_pdf'
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (27.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-01-30 19:16:15) [GET]
+  [4;36;1mFolder Load (0.5ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 109ms (View: 104, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 17:46:31) [GET]
+
+NameError (undefined local variable or method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (91.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 17:49:11) [GET]
+
+NoMethodError (undefined method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (89.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 18:07:22) [GET]
+
+NoMethodError (undefined method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (88.0ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 18:07:25) [GET]
+
+NoMethodError (undefined method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (23.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 18:51:53) [GET]
+
+NoMethodError (undefined method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  pdfkit (0.5.2) lib/pdfkit/middleware.rb:16:in `call'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (88.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 18:52:50) [GET]
+
+NoMethodError (undefined method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (91.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-01-31 19:11:03) [GET]
+
+NoMethodError (undefined method `acts_as_importable' for FoldersController:Class):
+  app/controllers/folders_controller.rb:4
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (90.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 12:42:46) [GET]
+  [4;36;1mFolder Load (1.3ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.5ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 160ms (View: 156, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 12:50:19) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 100ms (View: 97, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 12:50:57) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 92ms (View: 88, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 12:51:05) [GET]
+
+NameError (uninitialized constant ImportExport::ControllerMethods::InstanceMethods::UPLOADS_PATH):
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:38:27) [GET]
+Rendering template within layouts/application
+Rendering import_export/import
+
+ActionView::MissingTemplate (Missing template import_export/import.erb in view path app/views):
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 13:38:35) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 29ms (View: 26, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:38:42) [GET]
+Rendering template within layouts/application
+Rendering import_export/import
+
+ActionView::MissingTemplate (Missing template import_export/import.erb in view path app/views):
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:53:11) [GET]
+Rendering template within layouts/application
+Rendering import_export/import
+Completed in 77ms (View: 75, DB: 0) | 200 OK [http://localhost/folders/import]
+
+
+Processing FoldersController#upload (for 127.0.0.1 at 2012-02-01 13:53:19) [POST]
+  Parameters: {"commit"=>"Import", "authenticity_token"=>"v9M/nKz2hPwewtlBgufX2s1c+2EZ8kW+HI/ZlovSDHk="}
+Redirected to http://localhost:3000/folders/import
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/folders/upload]
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:53:19) [GET]
+Rendering template within layouts/application
+Rendering import_export/import
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/folders/import]
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:54:22) [GET]
+Rendering template within layouts/application
+Rendering import_export/import
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/folders/import]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 13:54:30) [GET]
+  [4;36;1mFolder Load (0.7ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 31ms (View: 28, DB: 1) | 200 OK [http://localhost/folders]
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:54:32) [GET]
+Rendering template within layouts/application
+Rendering import_export/import
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/folders/import]
+
+
+Processing FoldersController#upload (for 127.0.0.1 at 2012-02-01 13:55:22) [POST]
+  Parameters: {"csv_file"=>#<File:/tmp/RackMultipart20120201-15689-1qv14vj-0>, "commit"=>"Import", "authenticity_token"=>"v9M/nKz2hPwewtlBgufX2s1c+2EZ8kW+HI/ZlovSDHk="}
+Redirected to http://localhost:3000/folders/import
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/folders/upload]
+
+
+Processing FoldersController#import (for 127.0.0.1 at 2012-02-01 13:55:22) [GET]
+Creating new record from ["*Required Fields", nil, nil, "# Either Primary Email or Primary Phone required ", nil, nil, "Data entered should be exactly in the format as in the Portal", nil, nil, nil, nil, nil, nil]
+  [4;36;1mFolder Create (0.4ms)[0m   [0;1mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES('*Required Fields', '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, nil, nil, nil, nil, nil, "Contact", nil, nil, nil, "Lead Lawyer", nil, nil]
+  [4;35;1mFolder Create (0.1ms)[0m   [0mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from ["Matter Id", "Matter Name*", "Status", "Matter Category Litigation/Non-litigation", "Matter type*", "Matter inception date*", "First Name*", "Last Name", "Email #", "Phone #", "Lead Lawyer First Name", "Lead Lawyer Last Name", "Plaintiff / Defendant"]
+  [4;36;1mFolder Create (0.1ms)[0m   [0;1mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES('Matter Id', '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, "Prakash Vs jiya", nil, "Non-Litigation", "Wills", "30/08/11", "pslivia1", nil, nil, "12356432", "Carey", "Dalthorp", nil]
+  [4;35;1mFolder Create (0.1ms)[0m   [0mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, nil, nil, "Non-litigation", "Wills", "31/08/11", nil, nil, nil, "12356433", "Carey", "Dalthorp", nil]
+  [4;36;1mFolder Create (0.1ms)[0m   [0;1mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, "Test from Upload success130", nil, "Non-litigation", nil, "01/09/11", "pslivia3", nil, nil, "12356434", "Carey", "Dalthorp", nil]
+  [4;35;1mFolder Create (0.1ms)[0m   [0mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, "Test from Upload success126", nil, "Non-litigation", "Wills", "02/09/11", "pslivia41", nil, nil, "12356435", "Carey", "Dalthorp", nil]
+  [4;36;1mFolder Create (0.1ms)[0m   [0;1mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, "Test from Upload success127", nil, "Non-litigation", "Wills", "03/09/11", nil, nil, nil, "12356436", "Carey", "Dalthorp", nil]
+  [4;35;1mFolder Create (0.1ms)[0m   [0mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, "Test from Upload success128", nil, "litigation", "Wills", "04/09/11", "pslivia61", nil, nil, nil, "Carey", "Dalthorp", nil]
+  [4;36;1mFolder Create (0.1ms)[0m   [0;1mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Creating new record from [nil, "Test from Upload success129", nil, "Non-litigation", "Wills", nil, "pslivia71", nil, nil, "12356438", "Carey", "Dalthorp", nil]
+  [4;35;1mFolder Create (0.1ms)[0m   [0mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES(NULL, '2012-02-01 08:25:22', '2012-02-01 08:25:22')[0m
+Rendering template within layouts/application
+Rendering import_export/import
+Completed in 357ms (View: 3, DB: 1) | 200 OK [http://localhost/folders/import]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 13:55:37) [GET]
+  [4;36;1mFolder Load (0.7ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 38ms (View: 35, DB: 1) | 200 OK [http://localhost/folders]
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 13:55:47) [GET]
+  Parameters: {"id"=>"20"}
+  [4;36;1mFolder Load (0.1ms)[0m   [0;1mSELECT * FROM "folders" WHERE ("folders"."id" = 20) [0m
+[paperclip] Duplicate URL for file with /system/files/:id/:basename.:extension. This will clash with attachment defined in Help class
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/folders_controller.rb:45:in `show'
+  app/controllers/folders_controller.rb:42:in `show'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (91.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 13:55:57) [GET]
+  Parameters: {"id"=>"19"}
+  [4;35;1mFolder Load (0.1ms)[0m   [0mSELECT * FROM "folders" WHERE ("folders"."id" = 19) [0m
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/folders_controller.rb:45:in `show'
+  app/controllers/folders_controller.rb:42:in `show'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (26.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 13:56:00) [GET]
+  Parameters: {"id"=>"17"}
+  [4;36;1mFolder Load (0.1ms)[0m   [0;1mSELECT * FROM "folders" WHERE ("folders"."id" = 17) [0m
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/folders_controller.rb:45:in `show'
+  app/controllers/folders_controller.rb:42:in `show'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (98.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 13:56:19) [GET]
+  Parameters: {"id"=>"15"}
+  [4;35;1mFolder Load (0.1ms)[0m   [0mSELECT * FROM "folders" WHERE ("folders"."id" = 15) [0m
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/folders_controller.rb:45:in `show'
+  app/controllers/folders_controller.rb:42:in `show'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (25.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 13:56:28) [GET]
+  Parameters: {"id"=>"17"}
+  [4;36;1mFolder Load (0.1ms)[0m   [0;1mSELECT * FROM "folders" WHERE ("folders"."id" = 17) [0m
+
+NameError (uninitialized constant Mime::PDF):
+  app/controllers/folders_controller.rb:45:in `show'
+  app/controllers/folders_controller.rb:42:in `show'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (27.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 13:58:36) [GET]
+  Parameters: {"id"=>"17"}
+  [4;35;1mFolder Load (0.2ms)[0m   [0mSELECT * FROM "folders" WHERE ("folders"."id" = 17) [0m
+Rendering template within layouts/application
+Rendering folders/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "documents" WHERE ("documents".folder_id = 17) [0m
+Completed in 28ms (View: 22, DB: 0) | 200 OK [http://localhost/folders/17]
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 14:46:08) [GET]
+  Parameters: {"id"=>"17"}
+  [4;35;1mFolder Load (0.1ms)[0m   [0mSELECT * FROM "folders" WHERE ("folders"."id" = 17) [0m
+Rendering template within layouts/application
+Rendering folders/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "documents" WHERE ("documents".folder_id = 17) [0m
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/folders/17]
+
+
+Processing FoldersController#do_multiple_upload (for 127.0.0.1 at 2012-02-01 14:46:30) [POST]
+  Parameters: {"name"=>"Ruby_Weekly (1).vcf", "enctype"=>"multipart/form-data", "authenticity_token"=>"ABC", "id"=>"17", "file"=>#<File:/tmp/RackMultipart20120201-15689-1rplhgy-0>, "i"=>"0"}
+  [4;35;1mFolder Load (0.1ms)[0m   [0mSELECT * FROM "folders" WHERE ("folders"."id" = 17) [0m
+  [4;36;1mDocument Create (0.2ms)[0m   [0;1mINSERT INTO "documents" ("name", "created_at", "folder_id", "updated_at", "file_content_type", "file_file_size", "file_file_name", "file_updated_at") VALUES(NULL, '2012-02-01 09:16:31', 17, '2012-02-01 09:16:31', 'text/x-vcard', 214, 'Ruby_Weekly (1).vcf', '2012-02-01 09:16:30')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/livia/projects/plupload_on_rails2/public/system/files/342/Ruby_Weekly (1).vcf
+Rendering folders/do_multiple_upload
+Rendered folders/_document (131.6ms)
+Completed in 644ms (View: 167, DB: 0) | 200 OK [http://localhost/folders/do_multiple_upload]
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 14:46:31) [GET]
+  Parameters: {"files"=>"1", "id"=>"17"}
+  [4;35;1mFolder Load (0.1ms)[0m   [0mSELECT * FROM "folders" WHERE ("folders"."id" = 17) [0m
+Rendering template within layouts/application
+Rendering folders/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "documents" WHERE ("documents".folder_id = 17) [0m
+  [4;35;1mDocument Load (0.2ms)[0m   [0mSELECT * FROM "documents" WHERE ("documents".folder_id = 17) [0m
+Rendered folders/_document (1.7ms)
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/folders/17?files=1]
+
+
+Processing FoldersController#index (for 127.0.0.1 at 2012-02-01 14:48:17) [GET]
+  [4;36;1mFolder Load (0.6ms)[0m   [0;1mSELECT * FROM "folders" [0m
+Rendering template within layouts/application
+Rendering folders/index
+[paperclip] Duplicate URL for file with /system/files/:id/:basename.:extension. This will clash with attachment defined in Document class
+  [4;35;1mHelp Load (0.2ms)[0m   [0mSELECT * FROM "helps" WHERE ("helps"."name" = 'folder_index') LIMIT 1[0m
+Completed in 101ms (View: 98, DB: 1) | 200 OK [http://localhost/folders]
+
+
+Processing FoldersController#show (for 127.0.0.1 at 2012-02-01 14:48:20) [GET]
+  Parameters: {"id"=>"25"}
+  [4;36;1mFolder Load (0.1ms)[0m   [0;1mSELECT * FROM "folders" WHERE ("folders"."id" = 25) [0m
+[paperclip] Duplicate URL for file with /system/files/:id/:basename.:extension. This will clash with attachment defined in Help class
+Rendering template within layouts/application
+Rendering folders/show
+
+ActionView::TemplateError (undefined method `capitalize' for nil:NilClass) on line #3 of app/views/folders/show.html.erb:
+1: 
+2: 
+3: <h1><%=h @folder.name.capitalize %></h1>
+4: <%if !@folder.documents.empty?%>
+5: <table  id="mytable" cellspacing="0">
+6:   <thead>
+
+    app/views/folders/show.html.erb:3
+    app/controllers/folders_controller.rb:42:in `show'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /home/livia/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)

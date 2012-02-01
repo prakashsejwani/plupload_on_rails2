@@ -1,0 +1,41 @@
+<% content_for :company_selection do %>
+  <%if current_user.role?:livia_admin%>
+    <div id="topheadContainer">
+      <div class="title fl"><%= @company.name if @company.present?%></div>
+      <div id="searchContainer" class="fr"> <%=t(:label_select_company)%>
+        <%=collection_select :employee,:company_id,@companies,:id,:name_type,{:include_blank => 'Please select', :selected=> session[:company_id].blank??nil:session[:company_id].to_i},{:onchange=>"show_import_histories(this.value)" ,:class=>"field size3"}%>
+      </div>
+    </div>
+  <%end%>
+  <%if current_user.role?:lawfirm_admin%>
+    <div id="topheadContainer"><div class="title fl"><%= current_user.company_full_name  %></div></div>
+  <% end %>
+<% end %>
+<div class="box-head"><h2 class="left">Import Histories</h2></div>
+<div class="gryBox">
+  <div id="company_email_div">
+    <% unless params[:company_id].nil? %>
+      <%= render :partial=>'import_histories_listing',:locals=>{:import_histories=>@import_histories} %>
+    <% end %>
+  </div>
+</div>
+<script>
+function show_import_histories(company_id){
+  if(company_id==""){
+    return false
+  }
+  loader.prependTo("#company_email_div")
+  loader.prependTo("#show_employee_list")
+  jQuery.ajax({
+    type: "GET",
+    url: "/import_histories/list",
+    dataType: 'script',
+    data: {
+      'company_id' : company_id
+    },
+    success: function(){
+      loader.remove();
+    }
+  });
+}
+</script>

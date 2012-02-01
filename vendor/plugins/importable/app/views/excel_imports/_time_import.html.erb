@@ -1,0 +1,60 @@
+<div class="main_containt">
+  <div class="fr w100">
+    <div class="mb8">
+      <div class="column_main01 p5">
+        <h2 id="toggle_busi_cont_detail_toggle" class="title_main">
+          <div class="fl"><%=t(:text_file_import)%></div>
+          <div class="fr"><%= link_to "Import History",display_contact_import_histories_path() %></div>
+        </h2>
+        <div class="heading_title p5"><strong>Summery</strong></div>
+        <div class="clear"></div>
+        <div class="seperator_dotted_hori"></div>
+        <div class="p5 bg_white">
+
+          <div id="searched_matters" class="tabular_listing mt10">
+            <table width="30%" border="1" cellpadding="0" cellspacing="1">
+              <tr>
+          <th align="left"><strong>Name</strong></th>
+          <th align="left"><strong>No. of Time Entries</strong></th>
+        </tr>
+        <tr>
+          <td class="bg1">Total Valid Time Entries :</td>
+          <td class="bg1" ><%= @import_history.valid_records%></td>
+        </tr>
+        <tr>
+          <td class="bg1">Total InValid Time Entries :</td>
+          <td class="bg1" ><%= @import_history.invalid_records%></td>
+        </tr>
+        <tr>
+          <td class="bg1">Total Time Entries :</td>
+          <td class="bg1" ><%= @import_history.invalid_records+ @import_history.valid_records%></td>
+        </tr>
+            </table>
+          </div>
+        </div>
+        <div class="heading_title p5"><strong>Import Data</strong>
+        <div class="fr link_blue"> <a href="#"><span class="fl icon_name"><%= link_to "Invalid Excel File",download_invalid_excel_file_path(:import_history_id=>@import_history.id) %></span></a> </div>
+        </div>
+        <div class="clear"></div>
+        <div class="seperator_dotted_hori"></div>
+        <div class="p5">
+          <div class="tabs-container">
+            <h2 id="toggle_busi_cont_detail_toggle" class="title_main ">
+              <div class="fl">Invalid Time Entries</div>
+            </h2>
+            <div style="position : relative; left : 0; width : 99%;">
+              <div id="usual2" class="usual">
+                <div id="tabs1" class="tabular_listing" style="width:1180px;">
+                  <table class="resultset" id="0" cellspacing="1">
+                    <%= render :partial=>'content' %>
+                    <%= submit_tag "Import" %>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

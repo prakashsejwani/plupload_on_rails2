@@ -1,12 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
-  map.devise_for :users
+  #map.devise_for :users
 
   map.resources :helps
 
   map.resources :documents
 
-  map.resources :folders, :member => {:multiple_uploads => :get}, :collection => {:do_multiple_upload => :post, :create_product_pdf => :get}
+  map.resources :folders, :member => {:multiple_uploads => :get}, :collection => {:do_multiple_upload => :post, :create_pdf => :get, :upload => :post, :import => :get, :export => :get}
   map.root :controller => "folders"
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

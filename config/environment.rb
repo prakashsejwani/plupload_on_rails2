@@ -16,19 +16,12 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.gem "paperclip"
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-   config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-   config.gem "ruby-debug"
-   config.gem 'mime-types', :lib => 'mime/types'
-   config.gem 'mini_magick'
-  config.gem 'ckeditor',:version => '3.4.1'
-  config.gem 'pdfkit'
-  config.gem 'devise', :version => '1.0.11'
-config.middleware.use "PDFKit::Middleware", :print_media_type => true
+
+#   config.middleware.use "PDFKit::Middleware", :print_media_type => true
 #  config.gem 'wicked_pdf'
 #  config.gem 'prawn'
    #config.gem 'carrierwave', :version => '0.4'
@@ -46,7 +39,7 @@ config.middleware.use "PDFKit::Middleware", :print_media_type => true
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
-
+  UPLOADS_PATH = "#{Rails.root}/tmp"
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de

@@ -1,0 +1,43 @@
+<% add_breadcrumb @bread_crumb_name, @set_path
+add_breadcrumb " Import #{@module_type}", "/excel_imports?module_type=#{@module_type}" %>
+<div id ="imports_notice"></div>
+<h2 class="title_main"><%=t(:text_file_import)%>
+  <%  params[:other_parameter] = @campaign.id if @campaign.present? %>
+  <span style="float:right"><%= link_to "Import History", "/import_histories/display_import_history?module_type=#{@module_type}&other_parameter=#{params[:other_parameter]}&from=#{params[:from]}" %></span>
+</h2>
+<% form_tag(import_records_url(:format=>"js",:protocol=>'http'),:multipart => true,:target => 'upload_frame',:id=>'import_form') do  %>
+  <div class="p5 bg_white" id ="import_form_div">
+    <div class="mb4 mt4">
+      <div class="fl ml10 mt2 w32">
+        <strong><%=t(:label_select_a_file)%>  :</strong>  <%= file_field_tag :import_file %> <br/><br/>
+        <input type="submit" name="commit" value="Submit" id="file_submit"/>
+        <%= hidden_field_tag :module_type,@module_type %>
+        <%= hidden_field_tag :campaign_id,@campaign_id %>
+        <%= hidden_field_tag :time_entry,params[:time_entry] %>
+      </div>
+      <div class="fl w50 bg1">
+        <p class="p5">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <div class="fr w150p link_blue">
+        <a href="#"><span class="fl mr10 icon_name"><%= link_to "Download Format (XLS)","/excel_imports/download_template?module_type=#{@module_type}",:class=>'download-excel-link' %></span></a><br/><br/>
+         <a href="#"><span class="fl mr10 icon_name"><%=link_to('Back To Campaign',edit_campaign_path(@campaign,"mode_type"=>"MY","per_page"=>25)+"#fragment-1") if @campaign.present?%></span></a>
+    </div>
+      <br class="clear"/>
+    </div>
+    <div id="import-content"></div>
+  </div>
+<% end %>
+<iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>
+<script>
+  jQuery('#file_submit').click(function(){
+   import_file_name = jQuery('#import_file').val().split('.');
+   file_ext = import_file_name[import_file_name.length -1]
+   if(file_ext!="xls")
+     {
+       alert("Please enter valid file for import.");
+       return false;
+     }
+  });
+  </script>

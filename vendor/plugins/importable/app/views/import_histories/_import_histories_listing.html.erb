@@ -1,0 +1,30 @@
+<div class="tabular_listing ">
+  <table width="100%" cellpadding="1" cellspacing="1">
+    <thead>
+      <tr>
+        <th width="20%">Original File name</th>
+        <th width="20%" align="left">Error File Name</th>
+        <th width="8%">Valid Records</th>
+        <th width="8%">InValid Records</th>
+        <th width="8%">Total Records</th>
+        <th width="8%" align="left">Module</th>
+        <th width="14%" align="left">Uploaded By</th>
+        <th width="14%" align="left">Uploaded For</th>
+      </tr>  
+    </thead>
+    <tbody>
+      <% import_histories.each  do |import_history| %>
+        <tr class="<%= cycle('bg1', 'bg2') %>">
+          <td><%= link_to_orig_filename(import_history) %></td>
+          <td><%= link_to_error_filename(import_history) %></td>
+          <td align="center"><%= display_valid_record(import_history) %></td>
+          <td align="center"><%= display_invalid_record(import_history) %></td>
+          <td align="center"><%= display_total_record(import_history) %></td>
+          <td><%= import_history.module_type %></td>
+          <td><%= import_history.uploaded_by %></td>
+          <td><%= import_history.uploaded_for %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

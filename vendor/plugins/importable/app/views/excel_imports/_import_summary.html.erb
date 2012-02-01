@@ -1,0 +1,63 @@
+<script>
+  jQuery('table#imp_div').fixheadertable({
+    caption : 'Invalid Data',
+    colratio : <%= set_col_ratio(@module_type) %>,
+    height : 400,
+    width : '100%',
+    zebra : true,
+    resizeCol : true,
+    minColWidth : 50
+  });
+</script>
+<div class="heading_title p5"><strong>Summary</strong></div>
+<div class="clear"></div>
+<div class="seperator_dotted_hori"></div>
+<div class="p5 bg_white">
+
+  <div id="searched_matters" class="tabular_listing mt10">
+    <table width="30%" border="1" cellpadding="0" cellspacing="1">
+      <tr>
+        <th align="left"><strong>Name</strong></th>
+        <th align="left"><strong>No. of <%=format_module_name(@module_type)%> Entries</strong></th>
+      </tr>
+      <tr>
+        <td class="bg1">Total Valid <%=format_module_name(@module_type)%> Entries :</td>
+        <td class="bg1" ><%= @import_history.valid_records%></td>
+      </tr>
+      <tr>
+        <td class="bg1">Total InValid <%=format_module_name(@module_type)%> Entries :</td>
+        <td class="bg1" ><%= @import_history.invalid_records%></td>
+      </tr>
+      <tr>
+        <td class="bg1">Total <%=format_module_name(@module_type)%> Entries :</td>
+        <td class="bg1" ><%= @import_history.invalid_records+ @import_history.valid_records%></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="heading_title p5"><strong>Import Data</strong>
+  <div class="fr link_blue"> <a href="#"><span class="fl icon_name"><%= link_to "Invalid Excel File",download_invalid_excel_file_path(:import_history_id=>@import_history.id) %></span></a> </div>
+</div>
+<div class="clear"></div>
+<div class="seperator_dotted_hori"></div>
+
+<div id="container-1">
+  <%= render :partial  => 'all_import_tabs'%>
+  <%= render :partial=>'import_invalid_records' %>
+  <%= render :partial=>'import_valid_records' %>
+</div>
+
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery('#container-1').tabs(1);
+  });
+  jQuery("#container-1 li a").click(function(){
+    jQuery('body').trigger('click');
+    window.location.href=this;
+  });
+</script>
+
+
+
+
+

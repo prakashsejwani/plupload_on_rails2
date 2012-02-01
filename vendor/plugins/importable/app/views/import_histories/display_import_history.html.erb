@@ -1,0 +1,9 @@
+<% add_breadcrumb t(:text_menu_campaign), campaigns_path if @module_type=="campaign_member"
+add_breadcrumb @bread_crumb_name, @set_path
+add_breadcrumb " Import #{@module_type}", "/excel_imports?module_type=#{@module_type}"
+add_breadcrumb " Import History", "/import_histories/display_import_history?module_type=#{@module_type}" %>
+<%= hidden_field_tag :module_type,@module_type %>
+<h2 class="title_main">
+  <span style="float:left">Import History</span>
+</h2>  
+<%= render :partial=>'import_histories_listing',:locals=>{:import_histories=>@import_histories} %>

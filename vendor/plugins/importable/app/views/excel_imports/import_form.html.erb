@@ -1,0 +1,26 @@
+<h2 class="title_main"><%=t(:text_file_import)%>
+  <span style="float:right"><%= link_to "Import History",display_contact_import_histories_path() %></span>
+</h2>
+<%# form_tag("/excel_imports/time_import",:multipart => true) do%>
+<% form_remote_tag(:url=>{:action => :time_importde},:multipart => true) do  %>
+  <div class="p5 bg_white">
+    <div class="mb4 mt4">
+      <div class="fl ml10 mt2 w32">
+        <strong><%=t(:label_select_a_file)%>  :</strong>  <%= file_field_tag :import_file %> <br/><br/>
+        <%#= submit_tag t(:label_import), :class => "importcontacts" %>
+        <input type="submit" name="commit" value="importcontacts" />
+        <input type="submit" id="cancel" value="<%= t(:text_cancel) %>" onclick="window.location='<%=new_physical_timeandexpenses_time_and_expense_path%>'; return false;" class="importcontacts"/>
+      </div>
+      <div class="fl w50 bg1">
+        <p class="p5">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <div class="fr w150p link_blue">
+        <a href="#"><span class="fl mr10 icon_name"><%=link_to('Download Format (XLS)',{:controller=>'time_entries/download_xls_format'}) %></span></a>
+      </div>
+      <br class="clear"/>
+    </div>
+    <div id="import-content"></div>
+  </div>
+<% end %>

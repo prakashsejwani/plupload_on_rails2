@@ -14,7 +14,8 @@
     <td class="doc"><%= link_to 'Edit', edit_folder_path(folder) %>  <%= link_to 'Destroy', folder, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
-<tr><td><% if request.format.html?%><%= link_to image_tag('/images/pdf_icon.png', :alt => 'Download') + "Download as PDF", create_product_pdf_folders_path%><% end %></td></tr>
+<tr><td><% if request.format.html?%><%= link_to image_tag('/images/pdf_icon.png', :alt => 'Download') + "Download as PDF", create_pdf_folders_path%><% end %></td><td><%= link_to "Import Folders", import_folders_path%></td></tr>
+
 </table>
 
 <br />

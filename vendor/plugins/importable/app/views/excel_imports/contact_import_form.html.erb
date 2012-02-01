@@ -1,0 +1,20 @@
+<% add_breadcrumb t(:text_contacts),  contacts_path
+add_breadcrumb "File Import ", '/excel_imports/contact_import_form' %>
+<h2 class="title_main"><%=t(:text_file_import)%> 
+  <span style="float:right"><%= link_to "Import History",display_contact_import_histories_path() %></span>
+</h2>
+<div class="p8">
+  <% form_tag("/excel_imports/contact_import",:multipart => true) do%>
+    <div>   
+      <%=t(:label_select_a_file)%> 
+      <%= file_field_tag :import_file %>
+    <span id="xls" class="textBrwn11" style="text-align:left;">
+      <%=link_to('Download Format (XLS)',{:controller=>'contacts/download_xls_format'}) %>
+    </span>
+    </div>
+    <div class="buttonSub_div">
+      <%= submit_tag t(:label_import), :class => "importcontacts" %>
+      <input type="submit" id="cancel" value="<%= t(:text_cancel) %>" onclick="window.location='<%=contacts_path%>'; return false;" class="importcontacts"/>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,77 @@
+<style>
+
+table.summary{
+  border-spacing: 0;
+
+}
+table.summary thead,table tbody{
+    width :960px;
+ 
+
+}
+table.summary th{
+  background-color: #E7EEF4;
+
+}
+
+table.summary th, table.summary td{
+  border: 1px solid #AAA;
+  padding: 5px;
+}
+
+.import_th{
+  padding: 5px;
+  font-weight:bold;
+  background-color:#ccdadf;
+}
+.import-content{
+  overflow: scroll;
+  width:50%;
+  margin:10px;
+  }
+table td{
+ padding: 5px;
+}
+.download-excel-link{
+  font-size:18px;
+}
+</style>
+<%#= render :partial=>'time_import' %>
+<div id="container-1">
+  <% form_remote_tag(:url=>{:action => :current_contact_rpt},:condition => "validate_report_date()") do |f| %>
+    <%= render :partial=>'/dashboard_partials/rpt_dashboard' unless params[:load_popup]%>
+    <div id="fragment-1" class="tabs-container">
+      <%unless params[:load_popup]%>
+        <h2 class="title_main"><%=t(:label_Current_Contacts)%> <%= render :partial =>  "layouts/left_report_sidebar" %></h2>
+      <%else%>
+        <%=raw(generate_spinner_my_favorite_link)%>
+      <%end%>
+      <div class="p5">
+
+        <%unless params[:load_popup]%>
+          <div id="notice" class="flashmsg" style="color:#000; background:#b5d8a7; border:1px solid #549839; text-align:left; font-size:11px; font-weight:bold; padding:5px; margin-bottom:5px;display: none;">
+          </div>
+          <% opts = rpt_selection_helper(params[:get_records]) %>
+          <%= raw(radios_for_rpt(opts, "#{t(:label_contact)}")) %>
+          <br class="clear" />
+          <div class="xbox_gray" style="background:#f1e3c4; line-height:30px;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="pl3" >
+              <tbody>
+                <tr>
+                  <td  align="left" valign="middle"><%= t(:text_summarize_by) %></td>
+                  <td align="left" valign="middle"><%= select("report","summarize_by",[["#{t(:label_contact)} Stage","contactstage"],["Owner","owner"],["#{t(:label_Account)}","account"],["Rating","rating"],["Source","source"]],{:selected => params[:report][:summarize_by] || @report_summarize_by}) %></td>
+                  <%= render :partial => 'rpt_partials/date_picker', :locals => {:opt_style => opts[:style], :checked => opts[:checked]} %>
+                  <td valign="middle"><input type="submit" name="commit" value="Run Report" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <%end %>
+      <% end %>
+      <div class="" align="center" id="loader" style="display:none;"><img src='/images/loading.gif' /></div>
+      <div id="report-info"></div>
+      <div id="report-content"></div>
+    </div>
+  </div>
+</div>
+

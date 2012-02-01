@@ -1,0 +1,35 @@
+<div id="fragment-1" >
+  <div style="width:1180px;">
+    <%  if @import.invalid_records.present? %>
+      <% form_tag(import_records_url(:format=>"js",:protocol=>'http'),:multipart => true,:target => 'upload_frame',:id=>'import_form') do  %>
+        <table class="resultset" id="imp_div" cellspacing="1">
+          <thead>
+            <tr>
+              <th>Error</th>
+              <% @excel_headers.each do |header| %>
+                <th><%= header %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% @import.invalid_records.each_with_index do |record,index| %>
+              <tr class="<%= cycle('bg1', 'bg2') %>">
+                <td class="red_text">
+                  <span class="vtip" title="<%= record[2] %>"> <%= truncate(record[2].to_s,50) %></span>
+                </td>
+                <% record[1].each_with_index do |row,index| %>
+                  <td class="w70p"><%= text_field_tag "invalid_records[][#{@import.header_array[index].try(:to_sym)}]",row %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= hidden_field_tag :module_type,@module_type %>
+        <%= hidden_field_tag :campaign_id,@campaign_id %>
+        <%= submit_tag "Import" %>
+      <%end%>
+    <%  else %>
+      0 Invalid Records.
+    <%  end %>
+  </div>
+</div>

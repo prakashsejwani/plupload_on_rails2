@@ -1,0 +1,124 @@
+<style>
+
+table.summary{
+  border-spacing: 0;
+
+}
+table.summary thead,table tbody{
+    width :960px;
+ 
+
+}
+table.summary th{
+  background-color: #E7EEF4;
+
+}
+
+table.summary th, table.summary td{
+  border: 1px solid #AAA;
+  padding: 5px;
+}
+
+.import_th{
+  padding: 5px;
+  font-weight:bold;
+  background-color:#ccdadf;
+}
+.import-content{
+  overflow: scroll;
+  width:50%;
+  margin:10px;
+  }
+table td{
+ padding: 5px;
+}
+.download-excel-link{
+  font-size:18px;
+}
+</style>
+<script type="text/javascript">
+(function(){var dep={jQuery:"http://code.jquery.com/jquery-latest.min.js"};var init=function(){(function($){$.fn.idTabs=function(){var s={};for(var i=0;i<arguments.length;++i){var a=arguments[i];switch(a.constructor){case Object:$.extend(s,a);break;case Boolean:s.change=a;break;case Number:s.start=a;break;case Function:s.click=a;break;case String:if(a.charAt(0)=="."){s.selected=a}else{if(a.charAt(0)=="!"){s.event=a}else{s.start=a}}break}}if(typeof s["return"]=="function"){s.change=s["return"]}return this.each(function(){$.idTabs(this,s)})};$.idTabs=function(tabs,options){var meta=($.metadata)?$(tabs).metadata():{};var s=$.extend({},$.idTabs.settings,meta,options);if(s.selected.charAt(0)=="."){s.selected=s.selected.substr(1)}if(s.event.charAt(0)=="!"){s.event=s.event.substr(1)}if(s.start==null){s.start=-1}var showId=function(){if($(this).is("."+s.selected)){return s.change}var id="#"+this.href.split("#")[1];var aList=[];var idList=[];$("a",tabs).each(function(){if(this.href.match(/#/)){aList.push(this);idList.push("#"+this.href.split("#")[1])}});if(s.click&&!s.click.apply(this,[id,idList,tabs,s])){return s.change}for(i in aList){$(aList[i]).removeClass(s.selected)}for(i in idList){$(idList[i]).hide()}$(this).addClass(s.selected);$(id).show();return s.change};var list=$("a[href*='#']",tabs).unbind(s.event,showId).bind(s.event,showId);list.each(function(){$("#"+this.href.split("#")[1]).hide()});var test=false;if((test=list.filter("."+s.selected)).length){}else{if(typeof s.start=="number"&&(test=list.eq(s.start)).length){}else{if(typeof s.start=="string"&&(test=list.filter("[href*='#"+s.start+"']")).length){}}}if(test){test.removeClass(s.selected);test.trigger(s.event)}return s};$.idTabs.settings={start:0,change:false,click:null,selected:".selected",event:"!click"};$.idTabs.version="2.2";$(function(){$(".idTabs").idTabs()})})(jQuery)};var check=function(o,s){s=s.split(".");while(o&&s.length){o=o[s.shift()]}return o};var head=document.getElementsByTagName("head")[0];var add=function(url){var s=document.createElement("script");s.type="text/javascript";s.src=url;head.appendChild(s)};var s=document.getElementsByTagName("script");var src=s[s.length-1].src;var ok=true;for(d in dep){if(check(this,d)){continue}ok=false;add(dep[d])}if(ok){return init()}add(src)})();
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery.ajax({
+					url: '/excel_imports/get_data_import',
+					success: function(data) {                                          
+					jQuery('#imp_div').html(data).fixheadertable({
+							//caption : 'Invalid Data',
+							colratio : [100, 170,170, 170, 220, 170, 90, 220, 170, 220, 170, 170, 170, 170, 170, 170, 90, 120, 170, 170, 170, 170, 120, 120, 120, 120, 120, 120, 120, 170, 170, 170, 170, 90, 90, 90, 90],
+							height : 400,
+							width : '100%',
+							zebra : true,
+							resizeCol : true,
+							minColWidth : 50
+						});
+					}
+				});
+    });
+
+</script>
+<div class="main_containt">
+  <div class="fr w100">
+    <div class="mb8">
+      <div class="column_main01 p5">
+        <h2 id="toggle_busi_cont_detail_toggle" class="title_main">
+          <div class="fl"><%=t(:text_file_import)%></div>
+          <div class="fr"><%= link_to "Import History",display_contact_import_histories_path() %></div>
+        </h2>
+        <div class="heading_title p5"><strong>Summery</strong></div>
+        <div class="clear"></div>
+        <div class="seperator_dotted_hori"></div>
+        <div class="p5 bg_white">
+
+          <div id="searched_matters" class="tabular_listing mt10">
+            <table width="30%" border="1" cellpadding="0" cellspacing="1">
+              <tr>
+          <th align="left"><strong>Name</strong></th>
+          <th align="left"><strong>No. of Time Entries</strong></th>
+        </tr>
+        <tr>
+          <td class="bg1">Total Valid Time Entries :</td>
+          <td class="bg1" ><%= @import_history.valid_records%></td>
+        </tr>
+        <tr>
+          <td class="bg1">Total InValid Time Entries :</td>
+          <td class="bg1" ><%= @import_history.invalid_records%></td>
+        </tr>
+        <tr>
+          <td class="bg1">Total Time Entries :</td>
+          <td class="bg1" ><%= @import_history.invalid_records+ @import_history.valid_records%></td>
+        </tr>
+            </table>
+          </div>
+        </div>
+        <div class="heading_title p5"><strong>Import Data</strong>
+        <div class="fr link_blue"> <a href="#"><span class="fl icon_name"><%= link_to "Invalid Excel File",download_invalid_excel_file_path(:import_history_id=>@import_history.id) %></span></a> </div>
+        </div>
+        <div class="clear"></div>
+        <div class="seperator_dotted_hori"></div>
+        <div class="p5">
+          <div class="tabs-container">
+            <h2 id="toggle_busi_cont_detail_toggle" class="title_main ">
+              <div class="fl">Invalid Time Entries</div>
+            </h2>
+            <div style="position : relative; left : 0; width : 99%;">
+              <div id="usual2" class="usual">
+                <div id="tabs1" class="tabular_listing" style="width:1180px;">                  
+                  <table class="resultset" id="imp_div" cellspacing="1">
+                    
+                  </table>
+                  <%= submit_tag "Import" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#= render :partial=>'time_import'%>
+

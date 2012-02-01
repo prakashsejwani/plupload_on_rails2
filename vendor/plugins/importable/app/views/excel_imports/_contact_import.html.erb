@@ -1,0 +1,99 @@
+<% add_breadcrumb t(:text_contacts),  contacts_path
+add_breadcrumb "Contact Import ", '/excel_imports/contact_import_form' %>
+<h2 class="title_main">
+  <%=t(:text_file_import)%>
+    <span style="float:right"><%= link_to "Import History",display_contact_import_histories_path() %></span> 
+</h2>
+<div class="import-content">
+ <div>
+  <table border=1 class="summary">
+    <tbody>
+      <tr>
+       <th>Total Valid Contacts </th>
+        <td><%= @import_history.valid_records%></td>
+      </tr>
+      <tr>
+       <th>Total InValid Contacts </th>
+       <td><%= @import_history.invalid_records%></td>
+      </tr>
+      <tr>
+       <th>Total Contacts </th>
+       <td><%= @import_history.invalid_records+ @import_history.valid_records%></td> 
+      </tr>
+      </tbody>
+        
+    </table>
+<!-- some code here -->
+
+    <%= link_to "Invalid Excel",download_invalid_excel_file_path(:import_history_id=>@import_history.id),:class=>'download-excel-link' %>
+    <!-- IN THE BODY SECTION -->
+    <h3>Invalid records</h3>
+    <% if @import.invalid_records.present? %>
+    <% form_tag("/excel_imports/contact_import_from_invalid_records") do %>
+
+      <%= hidden_field_tag :import_history_id,@import_history.id %>
+      <table cellpadding="1" cellspacing="1">
+        <thead>
+          <tr>
+            <th class="import_th"><div style="width:200px">Error</div></th>
+            <% ContactImport::EXCEL_HEADERS.each do |header| %>
+              <th class="import_th"><%= header %></th>
+            <% end %>
+            
+          </tr>
+        </thead>
+
+        <tbody>
+           <% @import.invalid_records.each_with_index do |record,index| %>
+            <tr class="<%= cycle('bg1', 'bg2') %>">
+            <td class="error_td">
+              <% if record[0].is_a?(String) && record[0].empty? %>
+                <span class="vtip" title="<%= record[2] %>"> <%= truncate(record[2].to_s,50) %></span>
+              <% else %>
+                <span class="vtip" title="<%= record[0].errors.full_messages.uniq %>"> 
+                   <%=  truncate(record[0].errors.full_messages.uniq.to_s,50)%>
+                </span>
+              <% end %>
+            </td>
+             <% record[1].each_with_index do |row,index| %>
+              <td><%= text_field_tag "invalid_records[][#{@import.header_array[index].try(:to_sym)}]",row %></td>
+              <% end %>
+            </tr>  
+          <% end %>
+       
+        </tbody>
+        <tfoot>
+          <tr><td colspan=3> <%= submit_tag "Import" %> </td></tr>
+        </tfoot>
+      </table>
+    <% end %>
+    <% else %>
+      Import successfully Done (0)  invalid record)
+    <% end %>
+    <h3>valid records</h3>
+    <% if @import.valid_records.present? %>
+      <table cellpadding="1" cellspacing="1">
+        <thead>
+          <tr>
+            <% ContactImport::EXCEL_HEADERS.each do |header| %>
+              <th class="import_th"><%= header %></th>
+            <% end %>
+         </tr>
+        </thead>
+        <tbody>
+           <% @import.valid_records.each_with_index do |record,index| %>
+            <tr class="<%= cycle('bg1', 'bg2') %>">
+              <% record[1].each do |row| %>
+              <td><%= row %></td>
+              <% end %>
+            </tr>  
+          <% end %>
+          
+        </tbody>
+      </table>
+    <% else %>
+      0  records
+    <% end %>
+  </div>
+</div>
+

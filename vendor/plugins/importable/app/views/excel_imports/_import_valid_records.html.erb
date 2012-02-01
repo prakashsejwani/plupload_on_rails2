@@ -1,0 +1,28 @@
+<div id="fragment-2" >
+  <div style="width:1180px;">
+    <% if @import.valid_records.present? %>    
+        <table class="resultset" id="imp_div" cellspacing="1">
+          <thead>
+            <tr>
+              <% @excel_headers.each do |header| %>
+                <th><%= header %></th>
+              <% end %>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @import.valid_records.each_with_index do |record,index| %>
+              <tr class="<%= cycle('bg1', 'bg2') %>">
+                <% record[1].each do |value| %>
+                  <td><%= value%></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= hidden_field_tag :module_type,@module_type %>
+    <%  else %>
+      0 Valid Records.
+    <%  end %>
+  </div>
+</div>

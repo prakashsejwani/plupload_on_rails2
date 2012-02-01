@@ -1,0 +1,67 @@
+<% add_breadcrumb t(:text_contacts),  contacts_path
+add_breadcrumb "File Import ", '/excel_imports/time_import_form' %>
+<h2 class="title_main"><%=t(:text_file_import)%>
+  <span style="float:right"><%= link_to "Import History",display_contact_import_histories_path() %></span>
+</h2>
+<%# form_tag("/excel_imports/time_import",:multipart => true) do%>
+<% form_remote_tag(:url=>{:action => "/excel_imports/time_import"},:multipart => true) do  %>
+  <div class="p5 bg_white">
+    <div class="mb4 mt4">
+      <div class="fl ml10 mt2 w32">
+        <strong><%=t(:label_select_a_file)%>  :</strong>  <%= file_field_tag :import_file %> <br/><br/>
+        <%#= submit_tag t(:label_import), :class => "importcontacts" %>
+        <input type="submit" name="commit" value="importcontacts" />
+        <input type="submit" id="cancel" value="<%= t(:text_cancel) %>" onclick="window.location='<%=new_physical_timeandexpenses_time_and_expense_path%>'; return false;" class="importcontacts"/>
+      </div>
+      <div class="fl w50 bg1">
+        <p class="p5">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <div class="fr w150p link_blue">
+        <a href="#"><span class="fl mr10 icon_name"><%=link_to('Download Format (XLS)',{:controller=>'time_entries/download_xls_format'}) %></span></a>
+      </div>
+      <br class="clear"/>
+    </div>
+    <div id="report-content"></div>
+  </div>
+<% end %>
+
+#----------------------------------------------------------------------------------------
+<div id="container-1">
+
+    <%= render :partial=>'/dashboard_partials/rpt_dashboard' unless params[:load_popup]%>
+    <div id="fragment-1" class="tabs-container">
+      <%unless params[:load_popup]%>
+        <h2 class="title_main"><%=t(:label_Current_Contacts)%> <%= render :partial =>  "layouts/left_report_sidebar" %></h2>
+      <%else%>
+        <%=raw(generate_spinner_my_favorite_link)%>
+      <%end%>
+      <div class="p5">
+
+        <%unless params[:load_popup]%>
+          <div id="notice" class="flashmsg" style="color:#000; background:#b5d8a7; border:1px solid #549839; text-align:left; font-size:11px; font-weight:bold; padding:5px; margin-bottom:5px;display: none;">
+          </div>
+          <% opts = rpt_selection_helper(params[:get_records]) %>
+          <%= raw(radios_for_rpt(opts, "#{t(:label_contact)}")) %>
+          <br class="clear" />
+          <div class="xbox_gray" style="background:#f1e3c4; line-height:30px;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="pl3" >
+              <tbody>
+                <tr>
+                  <td  align="left" valign="middle"><%= t(:text_summarize_by) %></td>
+                  <td align="left" valign="middle"><%= select("report","summarize_by",[["#{t(:label_contact)} Stage","contactstage"],["Owner","owner"],["#{t(:label_Account)}","account"],["Rating","rating"],["Source","source"]],{:selected => params[:report][:summarize_by] || @report_summarize_by}) %></td>
+                  <%= render :partial => 'rpt_partials/date_picker', :locals => {:opt_style => opts[:style], :checked => opts[:checked]} %>
+                  <td valign="middle"><input type="submit" name="commit" value="Run Report" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <%end %>
+      <% end %>
+      <div class="" align="center" id="loader" style="display:none;"><img src='/images/loading.gif' /></div>
+      <div id="report-info"></div>
+      <div id="report-content"></div>
+    </div>
+  </div>
+</div>

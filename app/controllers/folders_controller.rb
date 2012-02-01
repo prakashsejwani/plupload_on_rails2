@@ -1,7 +1,7 @@
 class FoldersController < ApplicationController
   # GET /folders
   # GET /folders.xml
-
+  acts_as_importable :folder
   def index
     @folders = Folder.all
     
@@ -15,7 +15,7 @@ class FoldersController < ApplicationController
 #      end
     end
   end
-def create_product_pdf
+def create_pdf
   source_url = root_url
   output_pdf = "output_#{Time.now.to_i}.pdf"
   destination = "#{::Rails.root.to_s}/public/pdfs/#{output_pdf}"
@@ -42,11 +42,11 @@ end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @folder }
-       format.pdf do
-        render :pdf => "my_pdf", # pdf will download as my_pdf.pdf
-        :layout => 'pdf', # uses views/layouts/pdf.haml
-        :show_as_html => params[:debug].present? # renders html version if you set debug=true in URL
-      end
+#       format.pdf do
+#        render :pdf => "my_pdf", # pdf will download as my_pdf.pdf
+#        :layout => 'pdf', # uses views/layouts/pdf.haml
+#        :show_as_html => params[:debug].present? # renders html version if you set debug=true in URL
+#      end
     end  
   end
 

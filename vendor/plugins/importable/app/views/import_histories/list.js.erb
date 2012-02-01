@@ -1,0 +1,2 @@
+jQuery('#company_email_div').html("<%=escape_javascript(render(:partial => 'import_histories_listing.html.erb',:locals=>{:import_histories=>@import_histories}))%>");
+jQuery('#cmp_name').html("<%=@company.name%>");
